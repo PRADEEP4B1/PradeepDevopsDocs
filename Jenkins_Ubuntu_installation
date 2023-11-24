@@ -1,0 +1,30 @@
+>>>>>>>>>>>>>>>>>> Installing Jenkins on Ubuntu <<<<<<<<<<<<<<<<<<<<<<
+
+
+> First install Java:
+--------------------
+
+  sudo apt install openjdk-11-jdk
+  validate Java by java --version
+
+>Install Jenkins now:
+------------------------
+    sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+    https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+    https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+    /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+  sudo apt-get update
+  sudo apt-get install jenkins
+
+>Check jenkins service up & running:
+-----------------------------------
+    systemctl status jenkins.
+
+-Default,jenkins runs on port:8080
+-access webserver jenkins by using  'AWS_Publicadress:8080'
+
+-->Enable security, inbound rules, edit and add new rule.
+      Allow custom TCp-->port 8080-->source :AnywherIPv4 :0000/00
+-save the password which is available from /var/jenkins_home/secrets/initialAdminPassword and set a new password after login
