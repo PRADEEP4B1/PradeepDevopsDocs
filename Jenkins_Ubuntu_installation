@@ -1,13 +1,20 @@
 >>>>>>>>>>>>>>>>>> Installing Jenkins on Ubuntu <<<<<<<<<<<<<<<<<<<<<<
+>>Connect to EC2-ubuntu instance by
 
+ssh -i "test.pem" ubuntu@Ipaddress
+if permission denied, CHMOD 600 test.pem and try.
 
-> First install Java:
+>>After EC2-Ubuntu launch, try to do change to Root user by 
+
+  sudo su -
+	sudo apt update.
+
+>> First install Java:
 --------------------
-
   sudo apt install openjdk-11-jdk
   validate Java by java --version
 
->Install Jenkins now:
+>> Install Jenkins now:
 ------------------------
     sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
     https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
@@ -18,7 +25,7 @@
   sudo apt-get update
   sudo apt-get install jenkins
 
->Check jenkins service up & running:
+>> Check jenkins service up & running:
 -----------------------------------
     systemctl status jenkins.
 
@@ -27,4 +34,5 @@
 
 -->Enable security, inbound rules, edit and add new rule.
       Allow custom TCp-->port 8080-->source :AnywherIPv4 :0000/00
--save the password which is available from /var/jenkins_home/secrets/initialAdminPassword and set a new password after login
+
+--save the password which is available from /var/jenkins_home/secrets/initialAdminPassword and set a new password after login.
